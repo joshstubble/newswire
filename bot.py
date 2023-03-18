@@ -30,9 +30,9 @@ TWITTER_API_SECRET = os.getenv("TWITTER_API_SECRET")
 TWITTER_ACCESS_TOKEN = os.getenv("TWITTER_ACCESS_TOKEN")
 TWITTER_ACCESS_SECRET = os.getenv("TWITTER_ACCESS_SECRET")
 
-# Setup Discord bot and Slash commands
-bot = commands.Bot(command_prefix="!")
+# Setup Slash commands
 interaction_client = bot
+
 
 # Setup Tweepy
 auth = tweepy.OAuthHandler(os.environ["API_KEY"], os.environ["API_SECRET"])
