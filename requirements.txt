@@ -1,9 +1,7 @@
 aiohttp==3.8.1
-aiomysql==0.0.24
-discord-py==2.0.0
-discord-py-slash-command==2.0.0
-tweepy==4.3.0
-scikit-learn==1.0.2
-numpy==1.22.3
-pandas==1.4.1
+aiomysql==0.1.1
+discord.py==2.0.0
+discord-py-slash-command==2.0.2
+tweepy==4.1.0
 python-dotenv==0.19.2
+scikit-learn==1.0.1
