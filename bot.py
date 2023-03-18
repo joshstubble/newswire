@@ -5,8 +5,7 @@ import contextlib
 from collections import defaultdict
 from aiohttp import ClientSession
 from discord.ext import commands
-from discord_slash import SlashCommand, SlashContext
-from interactions import InteractionClient
+from discord.interactions import Interaction
 import tweepy
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -28,7 +27,7 @@ TWITTER_ACCESS_SECRET = os.getenv("TWITTER_ACCESS_SECRET")
 
 # Setup Discord bot and Slash commands
 bot = commands.Bot(command_prefix="!")
-interaction_client = InteractionClient(bot)
+interaction_client = bot
 
 # Setup Tweepy
 auth = tweepy.OAuthHandler(os.environ["API_KEY"], os.environ["API_SECRET"])
