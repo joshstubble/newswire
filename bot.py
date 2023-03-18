@@ -37,7 +37,7 @@ interaction_client = bot
 # Setup Tweepy
 auth = tweepy.OAuthHandler(os.environ["API_KEY"], os.environ["API_SECRET"])
 auth.set_access_token(os.environ["ACCESS_TOKEN"], os.environ["ACCESS_SECRET"])
-api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
+api = tweepy.API(auth, wait_on_rate_limit=True)
 
 
 async def get_pool():
