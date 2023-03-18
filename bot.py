@@ -112,7 +112,7 @@ async def add_twitter_account(twitter_handle: str, channel_id: int):
 
 
 # Slash command to start monitoring a Twitter account
-@interaction_client.command(name="start", description="Start monitoring a Twitter account.")
+@bot.slash_command(name="start", description="Start monitoring a Twitter account.")
 async def _start(ctx, twitter_handle: str):
     await add_twitter_account(twitter_handle, ctx.channel_id)
     await ctx.send(f"Now monitoring {twitter_handle} in this channel.")
