@@ -5,6 +5,8 @@ import contextlib
 from collections import defaultdict
 from aiohttp import ClientSession
 from discord.ext import commands
+from discord_slash import SlashCommand, SlashContext
+import tweepy
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import logging
@@ -31,6 +33,7 @@ slash = SlashCommand(bot, sync_commands=True)
 auth = tweepy.OAuthHandler(os.environ["API_KEY"], os.environ["API_SECRET"])
 auth.set_access_token(os.environ["ACCESS_TOKEN"], os.environ["ACCESS_SECRET"])
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
+
 
 async def get_pool():
     return await aiomysql.create_pool(
@@ -169,7 +172,7 @@ async def stream_tweets():
                             )
 
                         # Remove duplicate headlines
-                        unique_tweets = remove_duplicate_headlines(tweets)
+                        unique_tweets = remove_similar_headlines_tfidf(tweets)
 
                         # Send tweets to channels
                         for tweet in unique_tweets[::-1]:
