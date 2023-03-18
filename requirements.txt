@@ -1,7 +1,7 @@
 aiohttp==3.8.1
 aiomysql==0.1.1
 discord.py==2.0.0
-discord-interactions==1.1.6
+discord-py-interactions==1.1.6
 tweepy==4.1.0
 python-dotenv==0.19.2
 scikit-learn==1.0.1
