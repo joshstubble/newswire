@@ -6,7 +6,7 @@ import discord
 from collections import defaultdict
 from aiohttp import ClientSession
 from discord.ext import commands
-from discord_slash import SlashCommand
+from interactions import InteractionClient
 import tweepy
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -31,8 +31,7 @@ TWITTER_ACCESS_TOKEN = os.getenv("TWITTER_ACCESS_TOKEN")
 TWITTER_ACCESS_SECRET = os.getenv("TWITTER_ACCESS_SECRET")
 
 # Setup Slash commands
-slash = SlashCommand(bot, sync_commands=True)
-
+interaction_client = InteractionClient(bot)
 
 # Setup Tweepy
 auth = tweepy.OAuthHandler(os.environ["API_KEY"], os.environ["API_SECRET"])
@@ -117,7 +116,7 @@ async def add_twitter_account(twitter_handle: str, channel_id: int):
 
 
 # Slash command to start monitoring a Twitter account
-@slash.slash(name="start", description="Start monitoring a Twitter account.")
+@interaction_client.slash_command(name="start", description="Start monitoring a Twitter account.")
 async def _start(ctx, twitter_handle: str):
     await add_twitter_account(twitter_handle, ctx.channel_id)
     await ctx.send(f"Now monitoring {twitter_handle} in this channel.")
