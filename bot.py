@@ -2,6 +2,7 @@ import os
 import json
 import asyncio
 import contextlib
+import discord
 from collections import defaultdict
 from aiohttp import ClientSession
 from discord.ext import commands
@@ -15,6 +16,10 @@ from dotenv import load_dotenv
 import aiomysql
 
 load_dotenv()
+
+intents = discord.Intents.default()
+
+bot = commands.Bot(command_prefix="!", intents=intents)
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
