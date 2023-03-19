@@ -6,7 +6,7 @@ import discord
 from collections import defaultdict
 from aiohttp import ClientSession
 from discord.ext import commands
-from discord_interactions import InteractionClient
+from interactions import InteractionClient
 import tweepy
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
