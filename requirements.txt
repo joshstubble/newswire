@@ -4,4 +4,4 @@ tweepy
 scikit-learn
 python-dotenv
 aiomysql
-discord-interactions
+discord-py-interactions
