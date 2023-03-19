@@ -4,4 +4,4 @@ tweepy
 scikit-learn
 python-dotenv
 aiomysql
-discord-py-slash-command
+discord-py-slash-command==3.0.3
