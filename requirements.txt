@@ -4,4 +4,4 @@ tweepy
 scikit-learn
 python-dotenv
 aiomysql
-discord-py-interactions
+discord-py-slash-command
